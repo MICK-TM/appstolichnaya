@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "586481434780",
+    "firebase_url": "https://stolichniy-175800.firebaseio.com",
+    "project_id": "stolichniy-175800",
+    "storage_bucket": "stolichniy-175800.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586481434780:android:bd985b3bf305ca0e12ad59",
+        "android_client_info": {
+          "package_name": "ru.excitesakh.stolichnyy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586481434780-54ajm85unsj45fk380e3jb21g704sc5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsXtJhIVL2znAXKBqt7o4sYk5X-ncudWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586481434780-54ajm85unsj45fk380e3jb21g704sc5h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

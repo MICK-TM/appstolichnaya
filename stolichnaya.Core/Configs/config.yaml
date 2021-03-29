@@ -1,0 +1,70 @@
+Configs: &Default
+  Version: 2
+  AppName: Столичная
+  AgreementSettings:
+    Content: Profile.html
+  ServerSettings:
+    VerifyPhoneCodeLength: 6
+    ForceDisableInputSocial: False
+    CardValidationEnabled: False
+  Analytics:
+    Google: 
+      Enable: false
+  CachePolicyEnabled: True
+  ResendCodeConfirmTime: 60 #Время ожидания для повторной отправки кода подтверждения (секунды)
+  AnonymVirtualCard: False #Виртуальная карта для анонима 
+  ShowOptions:
+    ProfileCardViewModel: OnlyAuth #Отображать в меню "Моя карта" All or OnlyAuth
+    PersonalOffersViewModel: OnlyAuth #Отображать в меню "Персональные акции" OnlyAuth or Never
+    PersonalGoodsViewModel: OnlyAuth #Отображать в меню "Любимые товары" OnlyAuth or Never
+  Localization:
+    Enable: False #Подключение локализации
+    ViewLocalization: False #Отображение стартового экрана с выбором языка при первом запуске приложения
+
+Development:
+  <<: *Default
+  LoymaxEndpoint: 
+    AppUrl: https://mapp.guildmail.ru/publicapi/ 
+    ClientId: ""
+    PublicKey: ""
+    OfferId: "required"
+    PrivacyId: "required"
+  HockeyApp: 
+    AppKey:
+      Android: ""
+      Ios: ""
+    EnableCrashManager: False
+  PushNotification: 
+    Enable: true
+
+Staging:
+  <<: *Default
+  LoymaxEndpoint: 
+    AppUrl: https://mapp.guildmail.ru/publicapi/
+    ClientId: ""
+    PublicKey: ""
+    OfferId: "required"
+    PrivacyId: "required"
+  HockeyApp:
+    AppKey:
+      Android: ""
+      Ios: ""
+    EnableCrashManager: True
+  PushNotification: 
+    Enable: true
+
+Production:
+  <<: *Default
+  LoymaxEndpoint:
+    AppUrl: https://mapp.guildmail.ru/publicapi/
+    ClientId: ""
+    PublicKey: ""
+    OfferId: ""
+    PrivacyId: ""
+  HockeyApp: 
+    AppKey:
+      Android: ""
+      Ios: ""
+    EnableCrashManager: False
+  PushNotification: 
+    Enable: True
