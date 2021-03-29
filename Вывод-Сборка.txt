@@ -1,0 +1,15 @@
+﻿Очистка начата…
+1>------ Очистка начата: проект: stolichnaya.iOS.NotificationServiceExtension, Конфигурация: Debug iPhoneSimulator ------
+1>  Executing SayHello Task to establish a connection to a Mac Server. 
+1>  						 Properties: 
+1>  							SessionId=30397ad8ed48119b302d9b950c8d9b8652531e9565f0df2264686bdb2ae3cace, 
+1>  							ServerPort=59951, 
+1>  							ServerAddress=192.168.1.171, 
+1>  							ServerUser=app, 
+1>  							ServerPassword=, 
+1>  							SSHKey=, 
+1>  							SSHPassPhrase=,
+1>  							AppName=stolichnaya.iOS.NotificationServiceExtension,
+1>  							VisualStudioProcessId=3532,
+1>  							ContinueOnDisconnected=False
+========== Очистка: успешно: 1, с ошибками: 0, пропущено: 0 ==========

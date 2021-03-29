@@ -1,0 +1,348 @@
+<MvvmCross.DroidX.MvxSwipeRefreshLayout
+    xmlns:android        ="http://schemas.android.com/apk/res/android"
+    xmlns:local          ="http://schemas.android.com/apk/res-auto"
+    xmlns:tools          ="http://schemas.android.com/tools"
+    android:layout_width ="match_parent"
+    android:layout_height="wrap_content"
+    local:MvxBind        ="Refreshing IsRefreshing; RefreshCommand RefreshCommand">
+
+    <RelativeLayout
+        android:id="@+id/profile_card_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:orientation  ="vertical"
+            android:layout_width ="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation  ="vertical"
+                android:layout_width ="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop   ="4dp">
+                <LinearLayout
+                    android:layout_width ="match_parent"
+                    android:layout_height="wrap_content"
+                    local:MvxBind        ="Visibility VisibilityConverter(IsVirtualCardEmissionAllowed)">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width ="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation  ="vertical"
+                    local:MvxBind        ="Visibility InvertedVisibilityConverter(IsVirtualCardEmissionAllowed)" >
+                    <androidx.cardview.widget.CardView
+                        android:layout_width      ="match_parent"
+                        android:layout_height     ="wrap_content"
+                        android:layout_marginEnd  ="@dimen/activity_horizontal_margin_half"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+                        android:layout_marginTop  ="@dimen/activity_vertical_margin_half"
+                        local:cardCornerRadius    ="12dp"
+                        local:MvxBind             ="Visibility InvertedVisibilityConverter(HideCardImage)">
+                        <loymax.ui.android.AspectRatioImageView
+                            android:layout_width    ="match_parent"
+                            android:layout_height   ="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType       ="fitXY"
+                            local:MvxBind           ="ImageSource CardImageModel.Source"
+                            local:aspectRatio       ="0.625"
+                            local:srcCompat         ="@drawable/ic_card"/>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width      ="match_parent"
+                        android:layout_height     ="wrap_content"
+                        android:layout_marginEnd  ="@dimen/activity_horizontal_margin_half"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+                        android:layout_marginTop  ="@dimen/activity_vertical_margin_half"
+                        local:cardCornerRadius    ="12dp"
+                        local:cardBackgroundColor ="#EDECF2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+                                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                                    android:layout_marginBottom="6dp"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                                    android:textSize="21sp"
+                                    android:textStyle="bold"
+                                    local:MvxLang="Text ProfileCardViewModel.Texts.MainBlock"
+                                    tools:text="Данные карты" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <RelativeLayout
+                                    android:layout_width="100dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+                                    android:layout_marginRight="@dimen/activity_horizontal_margin_half"
+                                    android:layout_marginBottom="@dimen/activity_horizontal_margin_half"
+                                    android:background="@drawable/googlepay_button_no_shadow_background"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    local:MvxBind="Click AddGPayCommand; Visibility VisibilityConverter(WalletEnabled)">
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:duplicateParentState="true"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical"
+                                        android:weightSum="2">
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:duplicateParentState="true"
+                                            android:paddingTop="3dp"
+                                            android:scaleType="fitCenter"
+                                            android:src="@drawable/googlepay_button_content" />
+                                    </LinearLayout>
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:duplicateParentState="true"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/googlepay_button_overlay" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clipChildren="false"
+                                android:clipToPadding="false">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/activity_vertical_margin_half"
+                                    android:layout_marginTop="6dp"
+                                    android:layout_marginEnd="@dimen/activity_vertical_margin_half"
+                                    android:layout_marginBottom="12dp"
+                                    local:cardCornerRadius="8dp"
+                                    local:layout_constraintBottom_toBottomOf="parent"
+                                    local:layout_constraintEnd_toEndOf="parent"
+                                    local:layout_constraintStart_toStartOf="parent"
+                                    local:layout_constraintTop_toTopOf="parent">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical"
+                                        local:layout_constraintBottom_toBottomOf="parent"
+                                        local:layout_constraintEnd_toEndOf="parent"
+                                        local:layout_constraintStart_toStartOf="parent"
+                                        local:layout_constraintTop_toTopOf="parent">
+
+                                        <LinearLayout
+                                            android:id="@+id/profile_barcode_layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            local:MvxBind="Visibility VisibilityConverter(ShowBarCode)">
+
+                                            <ImageView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="64dp"
+                                                android:layout_marginStart="48dp"
+                                                android:layout_marginTop="@dimen/activity_vertical_margin_half"
+                                                android:layout_marginEnd="48dp"
+                                                android:layout_marginBottom="@dimen/activity_vertical_margin_quarter"
+                                                android:scaleType="fitXY"
+                                                local:MvxBind="BarCode128 BarCode" />
+
+                                            <TextView
+                                                style="@style/Lmx.TextAppearance.Body.B1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginBottom="@dimen/activity_vertical_margin_half"
+                                                android:gravity="center"
+                                                local:MvxBind="Text Number"
+                                                tools:textColor="@android:color/black"
+                                                tools:textSize="16sp"
+                                                tools:text="3000 6662 0514 4231" />
+                                        </LinearLayout>
+
+                                        <androidx.constraintlayout.widget.ConstraintLayout
+                                            android:id="@+id/profile_qrcode_layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            local:MvxBind="Visibility VisibilityConverter(ShowQrCode)">
+
+                                            <ProgressBar
+                                                android:id="@+id/progressBar"
+                                                style="?android:attr/progressBarStyle"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                local:MvxBind="Visibility VisibilityConverter(ShowQrCodeLoader)"
+                                                local:layout_constraintBottom_toBottomOf="parent"
+                                                local:layout_constraintEnd_toEndOf="parent"
+                                                local:layout_constraintStart_toStartOf="parent"
+                                                local:layout_constraintTop_toTopOf="parent" />
+
+                                            <ImageView
+                                                android:id="@+id/imageView2"
+                                                android:layout_width="0dp"
+                                                android:layout_height="0dp"
+                                                android:layout_gravity="center_horizontal"
+                                                android:layout_marginStart="88dp"
+                                                android:layout_marginTop="16dp"
+                                                android:layout_marginEnd="88dp"
+                                                android:layout_marginBottom="16dp"
+                                                android:scaleType="fitCenter"
+                                                local:MvxBind="QrCode QrCode"
+                                                local:layout_constraintBottom_toBottomOf="parent"
+                                                local:layout_constraintDimensionRatio="w,1:1"
+                                                local:layout_constraintEnd_toEndOf="parent"
+                                                local:layout_constraintStart_toStartOf="parent"
+                                                local:layout_constraintTop_toTopOf="parent" />
+
+                                            <LinearLayout
+                                                android:id="@+id/linearLayout"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="vertical"
+                                                local:layout_constraintBottom_toBottomOf="parent"
+                                                local:layout_constraintEnd_toEndOf="parent"
+                                                local:layout_constraintStart_toStartOf="parent"
+                                                local:layout_constraintTop_toTopOf="parent"
+                                                local:MvxBind="Visibility VisibilityConverter(ShowQrCodeError)">
+
+                                                <ImageView
+                                                    android:id="@+id/imageView"
+                                                    android:layout_width="220dp"
+                                                    android:layout_height="100dp"
+                                                    local:srcCompat="?attr/lmx_ic_qr_bar_code" />
+                                                <TextView
+                                                    style="@style/Lmx.TextAppearance.Subtitle.S1"
+                                                    android:id="@+id/textView"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="12dp"
+                                                    android:gravity="center"
+                                                    android:lines="2"
+                                                    local:MvxBind="Text QrCodeError"
+                                                    tools:textColor="@android:color/black"
+                                                    tools:textSize="17sp"
+                                                    tools:text="Генерация QR-кода не доступна" />
+                                            </LinearLayout>
+                                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                    android:id="@+id/card_type_selector_button"
+                                    android:layout_width="56dp"
+                                    android:layout_height="56dp"
+                                    android:layout_marginEnd="24dp"
+                                    android:elevation="4dp"
+                                    android:src="@drawable/ic_qrcode"
+                                    android:translationY="8dp"
+                                    local:MvxBind="Visibility VisibilityConverter(ShowSelector)"
+                                    local:fabSize="normal"
+                                    local:layout_constraintBottom_toBottomOf="parent"
+                                    local:layout_constraintEnd_toEndOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+                                android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
+                                android:layout_marginBottom="12dp"
+                                android:orientation="vertical"
+                                local:MvxBind="Visibility VisibilityConverter(UseStatus)">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="15sp"
+                                    local:MvxLang="Text ProfileCardViewModel.Texts.Status"
+                                    tools:text="Статус" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold"
+                                    local:MvxBind="Text Status"
+                                    tools:text="Золотая" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+                                android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
+                                android:layout_marginBottom="12dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="15sp"
+                                    local:MvxLang="Text ProfileCardViewModel.Texts.CardOwner"
+                                    tools:text="Владелец карты !!!!" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold"
+                                    local:MvxBind="Text Username"
+                                    tools:text="Иван Иванов Иваничидзе" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width       ="match_parent"
+                        android:layout_height      ="wrap_content"
+                        android:layout_marginEnd   ="@dimen/activity_horizontal_margin_half"
+                        android:layout_marginStart ="@dimen/activity_horizontal_margin_half"
+                        android:layout_marginTop   ="@dimen/activity_vertical_margin_half"
+                        android:layout_marginBottom="12dp"
+                        local:cardBackgroundColor  ="#EDECF2"
+                        local:cardCornerRadius     ="12dp">
+                        <RelativeLayout
+                            android:layout_width ="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id                ="@+id/balance_textView"
+                                android:layout_width      ="wrap_content"
+                                android:layout_height     ="wrap_content"
+                                android:layout_marginStart="@dimen/activity_horizontal_margin_half"
+                                android:layout_marginTop  ="@dimen/activity_vertical_margin"
+                                tools:text                ="Баланс!!!"
+                                android:textAppearance    ="@style/TextAppearance.AppCompat.Body1"
+                                android:textSize          ="21sp"
+                                android:textStyle         ="bold"
+                                local:MvxLang             ="Text ProfileCardViewModel.Texts.BonusBlock" />
+                            <MvvmCross.DroidX.RecyclerView.MvxRecyclerView
+                                android:layout_below         ="@+id/balance_textView"
+                                android:id                   ="@+id/profile_card_view_recycler_view"
+                                android:layout_width         ="match_parent"
+                                android:layout_height        ="wrap_content"
+                                android:layout_marginBottom  ="12dp"
+                                android:layout_marginEnd     ="@dimen/activity_horizontal_margin_half"
+                                android:layout_marginStart   ="@dimen/activity_horizontal_margin_half"
+                                android:layout_marginTop     ="@dimen/activity_vertical_margin_half"
+                                local:MvxBind                ="ItemsSource AccountDetailedBalanceItems"
+                                local:MvxItemTemplate        ="@layout/profile_card_bonus_list_view" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+           </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</MvvmCross.DroidX.MvxSwipeRefreshLayout>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ru.excitesakh.stolichnyy" android:versionCode="500" android:installLocation="auto" android:versionName="2.1.0">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application android:theme="@style/AppTheme.Main" android:usesCleartextTraffic="true" android:label="Столичная" android:icon="@mipmap/ic_launcher" android:largeHeap="true">
+		<provider android:name="androidx.core.content.FileProvider" android:authorities="ru.excitesakh.stolichnyy.fileprovider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths" />
+		</provider>
+	</application>
+</manifest>
