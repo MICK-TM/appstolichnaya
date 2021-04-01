@@ -2,7 +2,9 @@ namespace stolichnaya.Droid
 {
     using Loymax.Core;
     using Loymax.Core.Droid;
+    using Loymax.Core.Droid.Implements;
     using Loymax.Core.Modules;
+    using MvvmCross.Logging;
     using stolichnaya.Core;
 
     public class Setup : BaseDroidSetup
@@ -25,11 +27,18 @@ namespace stolichnaya.Droid
             registry.Register<Loymax.Module.Offers.Droid.OffersDroidModule>();
             registry.Register<Loymax.Module.Profile.Droid.ProfileDroidModule>();
             registry.Register<Loymax.Module.SupportService.Droid.SupportServiceDroidModule>();
+#if !RELEASE
+            registry.Register<Loymax.Module.ClientSettings.Droid.ClientSettingsDroidModule>();
+#endif
 
         }
-        /* public override void InitializeSecondary()
-         {
-             viewContainer.Add(typeof(NewProfileCardsView), typeof(GulSignUpFragment));
-         }*/
+        protected override IMvxLogProvider CreateLogProvider()
+        {
+#if !RELEASE
+            return new LogProvider();
+#else
+            return base.CreateLogProvider();
+#endif
+        }
     }
 }

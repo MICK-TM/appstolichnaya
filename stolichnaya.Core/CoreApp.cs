@@ -50,7 +50,10 @@ namespace stolichnaya.Core
              moduleManager.EnsurePluginLoaded<Loymax.Module.Offers.OffersModule>();
              moduleManager.EnsurePluginLoaded<Loymax.Module.Profile.ProfileModule>();
              moduleManager.EnsurePluginLoaded<Loymax.Module.SupportService.SupportServiceModule>();
+#if !RELEASE
+            moduleManager.EnsurePluginLoaded<Loymax.Module.ClientSettings.ClientSettingsModule>();
+#endif
 
-         }
-     }
+        }
+    }
  } 

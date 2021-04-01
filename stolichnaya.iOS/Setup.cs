@@ -12,6 +12,8 @@ namespace stolichnaya.iOS
     using MvvmCross.Platforms.Ios.Presenters;
     using UIKit;
     using stolichnaya.Core;
+    using MvvmCross.Logging;
+    using Loymax.Core.iOS.Implements;
 
     public class Setup : BaseIosSetup
     {
@@ -54,19 +56,31 @@ namespace stolichnaya.iOS
             return LxThemeManager.Instance;
         }
 
+        protected override IMvxLogProvider CreateLogProvider()
+        {
+#if !RELEASE
+            return new LogProvider();
+#else
+            return base.CreateLogProvider();
+#endif
+        }
+
         protected override void AddPlatformModules(ILxLoaderModuleRegistry registry)
         {
             base.AddPlatformModules(registry);
             registry.Register<Loymax.Module.Merchants.iOS.MerchantsIosModule>();
-registry.Register<Loymax.Module.ShoppingList.iOS.ShoppingListIosModule>();
-registry.Register<Loymax.Module.Notifications.iOS.NotificationsIosModule>();
-registry.Register<Loymax.Module.PurchaseHistory.iOS.PurchaseHistoryIosModule>();
-registry.Register<Loymax.Module.SignIn.iOS.SignInIosModule>();
-registry.Register<Loymax.Module.SignUp.iOS.SignUpIosModule>();
-registry.Register<Loymax.Module.ResetPassword.iOS.ResetPasswordIosModule>();
-registry.Register<Loymax.Module.Offers.iOS.OffersIosModule>();
-registry.Register<Loymax.Module.Profile.iOS.ProfileIosModule>();
-registry.Register<Loymax.Module.SupportService.iOS.SupportServiceIosModule>();
+            registry.Register<Loymax.Module.ShoppingList.iOS.ShoppingListIosModule>();
+            registry.Register<Loymax.Module.Notifications.iOS.NotificationsIosModule>();
+            registry.Register<Loymax.Module.PurchaseHistory.iOS.PurchaseHistoryIosModule>();
+            registry.Register<Loymax.Module.SignIn.iOS.SignInIosModule>();
+            registry.Register<Loymax.Module.SignUp.iOS.SignUpIosModule>();
+            registry.Register<Loymax.Module.ResetPassword.iOS.ResetPasswordIosModule>();
+            registry.Register<Loymax.Module.Offers.iOS.OffersIosModule>();
+            registry.Register<Loymax.Module.Profile.iOS.ProfileIosModule>();
+            registry.Register<Loymax.Module.SupportService.iOS.SupportServiceIosModule>();
+#if !RELEASE
+            registry.Register<Loymax.Module.ClientSettings.iOS.ClientSettingsIosModule>();
+#endif
 
         }
     }

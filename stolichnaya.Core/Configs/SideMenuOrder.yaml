@@ -11,3 +11,5 @@ Order:
   - ProfileViewModel.Title
   - SupportService.Title 
   - AboutApp.Title
+  - ClientSettingsViewModel.Title
+  - ClientLogsViewModel.Title
