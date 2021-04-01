@@ -338,7 +338,7 @@
                                 android:layout_marginStart   ="@dimen/activity_horizontal_margin_half"
                                 android:layout_marginTop     ="@dimen/activity_vertical_margin_half"
                                 local:MvxBind                ="ItemsSource AccountDetailedBalanceItems"
-                                local:MvxItemTemplate        ="@layout/profile_card_bonus_list_view" />
+                                local:MvxItemTemplate        ="@layout/_template_profile_card_bonus_item" />
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>

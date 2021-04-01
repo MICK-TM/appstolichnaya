@@ -164,7 +164,7 @@
       <Version>2020.2.1007.1696</Version>
     </PackageReference>
     <PackageReference Include="PushNotification.Service.iOS">
-      <Version>1.0.600-master</Version>
+      <Version>1.0.630-master</Version>
     </PackageReference>
     <PackageReference Include="System.Net.Http">
       <Version>4.3.4</Version>

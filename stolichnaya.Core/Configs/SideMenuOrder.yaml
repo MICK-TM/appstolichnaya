@@ -1,6 +1,6 @@
 Order:
   - SignInViewModel.Title
-  - ProfileCardViewModel.Title
+  - ProfileCardViewModelOld.Title
   - OffersViewModel.Title
   - PersonalOffersViewModel.Title
   - PersonalGoods.Title
