@@ -14,6 +14,9 @@ namespace stolichnaya.iOS
     using stolichnaya.Core;
     using MvvmCross.Logging;
     using Loymax.Core.iOS.Implements;
+    using Loymax.Core.Providers.Interfaces;
+    using MvvmCross;
+    using GoogleAnalytics.iOS;
 
     public class Setup : BaseIosSetup
     {
@@ -81,11 +84,17 @@ namespace stolichnaya.iOS
 #if !RELEASE
             registry.Register<Loymax.Module.ClientSettings.iOS.ClientSettingsIosModule>();
 #endif
-
         }
-    }
 
-    internal class GoogleAnalyticsListener
-    {
+        protected override void InitializeLastChance()
+        {
+            base.InitializeLastChance();
+
+            Mvx.IoCProvider.CallbackWhenRegistered<IAnalyticsProvider>(() =>
+            {
+                var provider = Mvx.IoCProvider.Resolve<IAnalyticsProvider>();
+                provider.RegisterListener<GoogleAnalyticsListener>();
+            });
+        }
     }
 }

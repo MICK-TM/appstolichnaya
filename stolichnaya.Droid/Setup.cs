@@ -1,9 +1,12 @@
 namespace stolichnaya.Droid
 {
+    using GoogleAnalytics.Droid;
     using Loymax.Core;
     using Loymax.Core.Droid;
     using Loymax.Core.Droid.Implements;
     using Loymax.Core.Modules;
+    using Loymax.Core.Providers.Interfaces;
+    using MvvmCross;
     using MvvmCross.Logging;
     using stolichnaya.Core;
 
@@ -39,6 +42,17 @@ namespace stolichnaya.Droid
 #else
             return base.CreateLogProvider();
 #endif
+        }
+
+        protected override void InitializeLastChance()
+        {
+            base.InitializeLastChance();
+
+            Mvx.IoCProvider.CallbackWhenRegistered<IAnalyticsProvider>(() =>
+            {
+                var provider = Mvx.IoCProvider.Resolve<IAnalyticsProvider>();
+                provider.RegisterListener<GoogleAnalyticsListener>();
+            });
         }
     }
 }

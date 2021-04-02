@@ -9,7 +9,7 @@ Configs: &Default
     CardValidationEnabled: False
   Analytics:
     Google: 
-      Enable: false
+      Enable: True
   CachePolicyEnabled: True
   ResendCodeConfirmTime: 60 #Время ожидания для повторной отправки кода подтверждения (секунды)
   AnonymVirtualCard: False #Виртуальная карта для анонима 

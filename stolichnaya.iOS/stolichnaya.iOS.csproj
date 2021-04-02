@@ -16,7 +16,6 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <SkipValidatePackageReferences>true</SkipValidatePackageReferences>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <ProvisioningType>automatic</ProvisioningType>
   </PropertyGroup>
   <!-- Try set Loymax.ruleset -->
   <PropertyGroup Condition="Exists('..\Loymax.ruleset')">
@@ -37,9 +36,8 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <CodesignKey>Apple Development: Sergey Krivoruchko (U97H7JD2XG)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>VS: ru.excitesakh.appstolichnyy Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -73,10 +71,8 @@
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <IpaIncludeArtwork>false</IpaIncludeArtwork>
     <CodesignKey>Apple Distribution: IKSAIT, OOO (JBF47G2SJ2)</CodesignKey>
-    <BuildIpa>true</BuildIpa>
-    <MtouchInterpreter>
-    </MtouchInterpreter>
     <CodesignProvision>stolichnaya</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <Optimize>true</Optimize>
@@ -88,8 +84,8 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>Apple Development: Sergey Krivoruchko (U97H7JD2XG)</CodesignKey>
-    <CodesignProvision>VS: ru.excitesakh.appstolichnyy Development</CodesignProvision>
+    <CodesignKey>Apple Distribution: IKSAIT, OOO (JBF47G2SJ2)</CodesignKey>
+    <CodesignProvision>appstolichnaya</CodesignProvision>
   </PropertyGroup>
   <!-- Ad-Hoc -->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
@@ -104,8 +100,8 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchUseLlvm>true</MtouchUseLlvm>
-    <CodesignKey>Apple Development: Sergey Krivoruchko (U97H7JD2XG)</CodesignKey>
-    <CodesignProvision>VS: ru.excitesakh.appstolichnyy Development</CodesignProvision>
+    <CodesignKey>Apple Distribution: IKSAIT, OOO (JBF47G2SJ2)</CodesignKey>
+    <CodesignProvision>appstolichnyy-adhoc</CodesignProvision>
     <BuildIpa>true</BuildIpa>
   </PropertyGroup>
   <!-- AppStore -->
@@ -126,15 +122,6 @@
     <CodesignProvision>VS: ru.excitesakh.appstolichnyy Development</CodesignProvision>
     <BuildIpa>true</BuildIpa>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
-    <AppExtensionDebugBundleId />
-  </PropertyGroup>
-  <PropertyGroup>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>stolichnaya.iOS.Application</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <Compile Include="Main.cs" />
@@ -143,7 +130,6 @@
     <Compile Include="Setup.cs" />
     <Compile Include="ThemeManager.cs" />
     <Compile Include="Views\MenuView.cs" />
-    <Compile Include="Views\SignlnViewNew.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -948,6 +934,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="style.less" />
+    <Reference Include="OpenTK-1.0" />
+    <BundleResource Include="Resources\im_logo_splash.png" />
+    <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs">
@@ -1130,6 +1119,12 @@
     <PackageReference Include="Xamarin.Firebase.iOS.Analytics">
       <Version>6.9.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configs\Core.yaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
