@@ -526,52 +526,52 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Clustering.Map">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="GoogleAnalytics">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Core">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.AboutApp">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.ClientSettings">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.Coupons">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.Merchants">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.MerchantsV2">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.Notifications">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.Profile">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.PurchaseHistory">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.ResetPassword">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.ShoppingList">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.SignIn">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.SignUp">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.SupportService">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Loymax.PublicApi.SDK">
       <Version>2020.2.1007.1696</Version>
@@ -589,7 +589,7 @@
       <Version>2.0.3</Version>
     </PackageReference>
     <PackageReference Include="PDF.Viewer">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Realm">
       <Version>10.1.2</Version>
@@ -697,7 +697,7 @@
       <Version>117.2.1</Version>
     </PackageReference>
     <PackageReference Include="Loymax.Module.Offers">
-      <Version>1.0.630-master</Version>
+      <Version>1.0.635-master</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Google.Android.DataTransport.TransportRuntime">
       <Version>2.2.6</Version>
