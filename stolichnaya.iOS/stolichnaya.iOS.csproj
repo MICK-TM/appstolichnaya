@@ -845,6 +845,8 @@
     <ImageAsset Include="Assets.xcassets\ic_filter.imageset\filter-25.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\ic_apple.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\ic_action_attention.imageset\" />
@@ -918,6 +920,7 @@
     <Folder Include="Assets.xcassets\ic_warning.imageset\" />
     <Folder Include="Assets.xcassets\im_language.imageset\" />
     <Folder Include="Assets.xcassets\im_logo.imageset\" />
+    <Folder Include="Assets.xcassets\ic_apple.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\stolichnaya.Core\stolichnaya.Core.csproj">
