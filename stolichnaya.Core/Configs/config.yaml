@@ -27,8 +27,8 @@ Development:
     AppUrl: https://mapp.guildmail.ru/publicapi/ 
     ClientId: ""
     PublicKey: ""
-    OfferId: "required"
-    PrivacyId: "required"
+    OfferId: "7685e4d8-47f8-4cba-55ce-c93dafcc7974"
+    PrivacyId: "f8da26f6-36f9-4ec9-f1a9-e8e1b0a5d709"
   HockeyApp: 
     AppKey:
       Android: ""
@@ -43,8 +43,8 @@ Staging:
     AppUrl: https://mapp.guildmail.ru/publicapi/
     ClientId: ""
     PublicKey: ""
-    OfferId: "required"
-    PrivacyId: "required"
+    OfferId: "7685e4d8-47f8-4cba-55ce-c93dafcc7974"
+    PrivacyId: "f8da26f6-36f9-4ec9-f1a9-e8e1b0a5d709"
   HockeyApp:
     AppKey:
       Android: ""
@@ -59,8 +59,8 @@ Production:
     AppUrl: https://mapp.guildmail.ru/publicapi/
     ClientId: ""
     PublicKey: ""
-    OfferId: ""
-    PrivacyId: ""
+    OfferId: "7685e4d8-47f8-4cba-55ce-c93dafcc7974"
+    PrivacyId: "f8da26f6-36f9-4ec9-f1a9-e8e1b0a5d709"
   HockeyApp: 
     AppKey:
       Android: ""
